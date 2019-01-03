@@ -1,0 +1,68 @@
+# Logfile created on 2019-01-03 06:47:46 -0800 by logger.rb/56815
+I, [2019-01-03T06:47:46.345381 #46634]  INFO -- : (0.000265s) PRAGMA foreign_keys = 1
+I, [2019-01-03T06:47:46.345520 #46634]  INFO -- : (0.000029s) PRAGMA case_sensitive_like = 1
+I, [2019-01-03T06:47:46.345735 #46634]  INFO -- : (0.000120s) SELECT sqlite_version()
+I, [2019-01-03T06:47:46.346054 #46634]  INFO -- : (0.000074s) CREATE TABLE IF NOT EXISTS `schema_info` (`version` integer DEFAULT (0) NOT NULL)
+I, [2019-01-03T06:47:46.346643 #46634]  INFO -- : (0.000431s) SELECT * FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:47:46.346974 #46634]  INFO -- : (0.000109s) SELECT 1 AS 'one' FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:47:46.347324 #46634]  INFO -- : (0.000123s) SELECT count(*) AS 'count' FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:47:46.347643 #46634]  INFO -- : (0.000116s) SELECT `version` FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:47:46.350045 #46634]  INFO -- : (0.002206s) DELETE FROM `expenses`
+I, [2019-01-03T06:48:09.424461 #46656]  INFO -- : (0.000218s) PRAGMA foreign_keys = 1
+I, [2019-01-03T06:48:09.424616 #46656]  INFO -- : (0.000024s) PRAGMA case_sensitive_like = 1
+I, [2019-01-03T06:48:09.424786 #46656]  INFO -- : (0.000094s) SELECT sqlite_version()
+I, [2019-01-03T06:48:09.425036 #46656]  INFO -- : (0.000063s) CREATE TABLE IF NOT EXISTS `schema_info` (`version` integer DEFAULT (0) NOT NULL)
+I, [2019-01-03T06:48:09.425276 #46656]  INFO -- : (0.000111s) SELECT * FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:48:09.425548 #46656]  INFO -- : (0.000083s) SELECT 1 AS 'one' FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:48:09.425803 #46656]  INFO -- : (0.000091s) SELECT count(*) AS 'count' FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:48:09.426049 #46656]  INFO -- : (0.000084s) SELECT `version` FROM `schema_info` LIMIT 1
+I, [2019-01-03T06:48:09.429646 #46656]  INFO -- : (0.003400s) DELETE FROM `expenses`
+I, [2019-01-03T06:48:09.431972 #46656]  INFO -- : Starting example: ExpenseTracker::Ledger#expenses_on returns all expenses for the provided date
+I, [2019-01-03T06:48:09.432222 #46656]  INFO -- : (0.000053s) BEGIN
+I, [2019-01-03T06:48:09.433059 #46656]  INFO -- : (0.000448s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2018-12-25')
+I, [2019-01-03T06:48:09.433619 #46656]  INFO -- : (0.000117s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.433901 #46656]  INFO -- : (0.000055s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2018-12-25')
+I, [2019-01-03T06:48:09.434249 #46656]  INFO -- : (0.000087s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.434490 #46656]  INFO -- : (0.000045s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2018-12-26')
+I, [2019-01-03T06:48:09.434738 #46656]  INFO -- : (0.000060s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.443265 #46656]  INFO -- : (0.008283s) SELECT * FROM `expenses` WHERE (`date` = '2018-12-25')
+I, [2019-01-03T06:48:09.450271 #46656]  INFO -- : (0.001716s) ROLLBACK
+I, [2019-01-03T06:48:09.450529 #46656]  INFO -- : Ending example: ExpenseTracker::Ledger#expenses_on returns all expenses for the provided date
+I, [2019-01-03T06:48:09.451450 #46656]  INFO -- : Starting example: ExpenseTracker::Ledger#expenses_on returns a blank array when there are no matching expenses
+I, [2019-01-03T06:48:09.451712 #46656]  INFO -- : (0.000059s) BEGIN
+I, [2019-01-03T06:48:09.452329 #46656]  INFO -- : (0.000236s) SELECT * FROM `expenses` WHERE (`date` = '2018-12-25')
+I, [2019-01-03T06:48:09.453288 #46656]  INFO -- : (0.000069s) ROLLBACK
+I, [2019-01-03T06:48:09.453424 #46656]  INFO -- : Ending example: ExpenseTracker::Ledger#expenses_on returns a blank array when there are no matching expenses
+I, [2019-01-03T06:48:09.454436 #46656]  INFO -- : Starting example: ExpenseTracker::Ledger#record when the expense lacks a date rejects the expense as invalid
+I, [2019-01-03T06:48:09.454782 #46656]  INFO -- : (0.000089s) BEGIN
+I, [2019-01-03T06:48:09.460720 #46656]  INFO -- : (0.000183s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.461066 #46656]  INFO -- : (0.000067s) ROLLBACK
+I, [2019-01-03T06:48:09.461171 #46656]  INFO -- : Ending example: ExpenseTracker::Ledger#record when the expense lacks a date rejects the expense as invalid
+I, [2019-01-03T06:48:09.461821 #46656]  INFO -- : Starting example: ExpenseTracker::Ledger#record when the expense lacks an amount rejects the expense as invalid
+I, [2019-01-03T06:48:09.462049 #46656]  INFO -- : (0.000061s) BEGIN
+I, [2019-01-03T06:48:09.462819 #46656]  INFO -- : (0.000184s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.463064 #46656]  INFO -- : (0.000054s) ROLLBACK
+I, [2019-01-03T06:48:09.463156 #46656]  INFO -- : Ending example: ExpenseTracker::Ledger#record when the expense lacks an amount rejects the expense as invalid
+I, [2019-01-03T06:48:09.463759 #46656]  INFO -- : Starting example: ExpenseTracker::Ledger#record with a valid expense successfully saves the expense in the DB
+I, [2019-01-03T06:48:09.464027 #46656]  INFO -- : (0.000048s) BEGIN
+I, [2019-01-03T06:48:09.464942 #46656]  INFO -- : (0.000561s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2018-12-25')
+I, [2019-01-03T06:48:09.465389 #46656]  INFO -- : (0.000139s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.465808 #46656]  INFO -- : (0.000171s) SELECT * FROM `expenses`
+I, [2019-01-03T06:48:09.473812 #46656]  INFO -- : (0.001159s) ROLLBACK
+I, [2019-01-03T06:48:09.473952 #46656]  INFO -- : Ending example: ExpenseTracker::Ledger#record with a valid expense successfully saves the expense in the DB
+I, [2019-01-03T06:48:09.474694 #46656]  INFO -- : Starting example: ExpenseTracker::Ledger#record when the expense lacks a payee rejects the expense as invalid
+I, [2019-01-03T06:48:09.474991 #46656]  INFO -- : (0.000059s) BEGIN
+I, [2019-01-03T06:48:09.475705 #46656]  INFO -- : (0.000198s) SELECT count(*) AS 'count' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.475879 #46656]  INFO -- : (0.000045s) ROLLBACK
+I, [2019-01-03T06:48:09.475944 #46656]  INFO -- : Ending example: ExpenseTracker::Ledger#record when the expense lacks a payee rejects the expense as invalid
+I, [2019-01-03T06:48:09.529044 #46656]  INFO -- : Starting example: Expense Tracker API records submitted expenses
+I, [2019-01-03T06:48:09.529253 #46656]  INFO -- : (0.000047s) BEGIN
+I, [2019-01-03T06:48:09.531893 #46656]  INFO -- : (0.000533s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Starbucks', 5.75, '2018-12-25')
+I, [2019-01-03T06:48:09.532309 #46656]  INFO -- : (0.000101s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.534583 #46656]  INFO -- : (0.000086s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Zoo', 15.25, '2018-12-25')
+I, [2019-01-03T06:48:09.534928 #46656]  INFO -- : (0.000104s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.535712 #46656]  INFO -- : (0.000043s) INSERT INTO `expenses` (`payee`, `amount`, `date`) VALUES ('Whole Foods', 95.2, '2018-12-26')
+I, [2019-01-03T06:48:09.535958 #46656]  INFO -- : (0.000088s) SELECT max(`id`) AS 'max' FROM `expenses` LIMIT 1
+I, [2019-01-03T06:48:09.536703 #46656]  INFO -- : (0.000151s) SELECT * FROM `expenses` WHERE (`date` = '2018-12-25')
+I, [2019-01-03T06:48:09.539098 #46656]  INFO -- : (0.001037s) ROLLBACK
+I, [2019-01-03T06:48:09.539196 #46656]  INFO -- : Ending example: Expense Tracker API records submitted expenses
